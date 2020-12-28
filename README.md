@@ -1,16 +1,13 @@
 # ssl cert
 
-first make sure you've got ~/.aws/credentials set up. then (using python 2)
+first make sure you've got ~/.aws/credentials set up. then
 
 ```
-pip install letsencrypt && pip install letsencrypt-s3front
-letsencrypt --agree-tos -a letsencrypt-s3front:auth -i letsencrypt-s3front:installer --letsencrypt-s3front:auth-s3-bucket danslimmon-dotcom --letsencrypt-s3front:auth-s3-region us-east-2 --letsencrypt-s3front:installer-cf-distribution-id E1I0FBV3Z4XP2X -d danslimmon.com --logs-dir /tmp/letsencrypt-logs --config-dir /tmp/letsencrypt-etc --work-dir /tmp/letsencrypt-work
+awsudo -u personal certbot --agree-tos -a certbot-s3front:auth --certbot-s3front:auth-s3-bucket danslimmon-dotcom --certbot-s3front:auth-s3-region us-east-2 -i certbot-s3front:installer --certbot-s3front:installer-cf-distribution-id E1I0FBV3Z4XP2X -d danslimmon.com --logs-dir /tmp/certbot-logs --config-dir /tmp/certbot-etc --work-dir /tmp/certbot-work
 ```
 
 or for quantumschmantum:
 
 ```
-letsencrypt --agree-tos -a letsencrypt-s3front:auth -i letsencrypt-s3front:installer --letsencrypt-s3front:auth-s3-bucket danslimmon-qs --letsencrypt-s3front:auth-s3-region us-east-2 --letsencrypt-s3front:installer-cf-distribution-id E3ATHZMOX05IO2 -d quantumschmantum.com --logs-dir /tmp/letsencrypt-logs --config-dir /tmp/letsencrypt-etc --work-dir /tmp/letsencrypt-work
+awsudo -u personal certbot --agree-tos -a certbot-s3front:auth --certbot-s3front:auth-s3-bucket danslimmon-qs --certbot-s3front:auth-s3-region us-east-2 -i certbot-s3front:installer --certbot-s3front:installer-cf-distribution-id E3ATHZMOX05IO2 -d quantumschmantum.com --logs-dir /tmp/certbot-logs --config-dir /tmp/certbot-etc --work-dir /tmp/certbot-work
 ```
-
-now the new cert will appear in the cloudfront control panel. select it and save.
